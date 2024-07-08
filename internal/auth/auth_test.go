@@ -34,7 +34,7 @@ func TestGetAPIKey(t *testing.T) {
 		{
 			name:        "empty authorization header",
 			headers:     http.Header{"Authorization": {""}},
-			expectedKey: "1",
+			expectedKey: "",
 			expectedErr: ErrNoAuthHeaderIncluded,
 		},
 		{
@@ -57,17 +57,3 @@ func TestGetAPIKey(t *testing.T) {
 		})
 	}
 }
-
-/*
-?       github.com/bootdotdev/learn-cicd-starter        [no test files]
-?       github.com/bootdotdev/learn-cicd-starter/internal/database      [no test files]
---- FAIL: TestGetAPIKey (0.00s)
-    --- FAIL: TestGetAPIKey/malformed_authorization_header (0.00s)
-        auth_test.go:55: expected error malformed authorization header, got malformed authorization header
-    --- FAIL: TestGetAPIKey/missing_ApiKey_in_authorization_header (0.00s)
-        auth_test.go:55: expected error malformed authorization header, got malformed authorization header
-FAIL
-FAIL    github.com/bootdotdev/learn-cicd-starter/internal/auth  0.003s
-FAIL
-
-*/
